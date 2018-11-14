@@ -196,47 +196,56 @@ def checkIfDraw(board):
         
 def main():
     global turn
-
-    # Print the introduction and instructions.
-    printInstructions()
-
-    # Ask the player for difficulty level and set accordingly.
-    askAndSetDifficulty()
-    
-    # Set first move as per player's wish.
-    if not firstMove():
-        turn = O
-    else:
-        turn = X
-
-    # Set up the board.
-    startBoard()
-    printBoard(board)
-
-    # Start the loop.
-    while not gameOver:
-        print("\n")
-
-        if turn == X:
-            playerTurn()
-        else:
-            print("Computer's turn!")
-            computerTurn()
+    global board
+    while True:
+                        
+        # Reset the board
+        board = []
         
-        switchTurn()
+        # Print the introduction and instructions.
+        printInstructions()
+
+        # Ask the player for difficulty level and set accordingly.
+        askAndSetDifficulty()
+
+        # Set first move as per player's wish.
+        if not firstMove():
+            turn = O
+        else:
+            turn = X
+
+        # Set up the board.
+        startBoard()
         printBoard(board)
 
-        if checkIfWin(board):
-            winner = checkIfWin(board)
-            break
-        elif checkIfDraw(board):
-            winner = "draw"
-            break
+        # Start the loop.
+        while not gameOver:
+            print("\n")
 
-    print("\n")
-    print("The game has ended!")
-    congratulateWinner(winner)
-    print("Thank you for playing the game.\n")
+            if turn == X:
+                playerTurn()
+            else:
+                print("Computer's turn!")
+                computerTurn()
+
+            switchTurn()
+            printBoard(board)
+
+            if checkIfWin(board):
+                winner = checkIfWin(board)
+                break
+            elif checkIfDraw(board):
+                winner = "draw"
+                break
+
+        print("\n")
+        print("The game has ended!")
+        congratulateWinner(winner)
+        print("Thank you for playing the game.\n")
+        again = input("Would you like to play again? Y/N ")
+        if again.lower() == "n":
+            break
+        
     input("Press enter to exit the game.")
 
 
