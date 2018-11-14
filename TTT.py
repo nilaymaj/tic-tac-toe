@@ -196,7 +196,12 @@ def checkIfDraw(board):
         
 def main():
     global turn
+    global board
     while True:
+                        
+        # Reset the board
+        board = []
+        
         # Print the introduction and instructions.
         printInstructions()
 
