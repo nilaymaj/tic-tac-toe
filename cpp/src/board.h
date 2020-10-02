@@ -1,6 +1,5 @@
 #pragma once
 #include <array>
-#include <vector>
 
 const std::array<std::array<int, 3>, 8> WIN_LINES = {{{0, 1, 2},
                                                       {3, 4, 5},
