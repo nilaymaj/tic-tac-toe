@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tic-Tac-Toe</title>
+    <script src="game.js"></script>
+    <style>
+      body {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .root {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .board {
+        flex-grow: 1;
+      }
+      .row {
+        display: flex;
+      }
+      .cell {
+        flex: 1;
+        font-family: monospace;
+        border: 1px solid gray;
+        border-radius: 10px;
+        font-size: 1.5em;
+        padding: 0 25px;
+        margin: 5px;
+        transition: all 0.1s ease-in-out;
+      }
+      .cell:hover {
+        transform: scale(1.1);
+      }
+      .msg {
+        font-size: 1.2em;
+        flex: 0;
+      }
+      .msg.draw-msg {
+        color: #8f7c04;
+      }
+      .msg.win-msg {
+        color: #007304;
+      }
+      .msg.lose-msg {
+        color: #8a0000;
+      }
+      .reset-game {
+        flex: 0;
+        border: none;
+        box-shadow: none;
+        padding: 10px 20px;
+        margin-top: 10px;
+        border-radius: 5px;
+        background: #2070a5;
+        color: white;
+        transition: all 0.1s ease-in-out;
+      }
+      .reset-game:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="myapp"></div>
+    <script>
+      var app = Elm.Main.init({
+        node: document.getElementById("myapp"),
+      });
+    </script>
+  </body>
+</html>
